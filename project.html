@@ -1,0 +1,76 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проект — Наталья Егурнова</title>
+<meta name="robots" content="noindex">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f1f4f6; --ink: #323c46; --muted: #666e75;
+    --line: #e1e6ec; --accent: #ff3333;
+    --sans: "Lab Grotesque", "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  [data-theme="dark"] {
+    --bg: #0e1216; --bg2: #161c21; --ink: #e9eef3; --muted: #99a5b1;
+    --line: #232c34; --accent: #ff5a5a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .bar { border-bottom: 1px solid var(--line); }
+  .bar .wrap { display: flex; align-items: center; height: 58px; gap: 16px; }
+  .back { font-size: 14px; font-weight: 600; color: var(--muted); padding: 10px 0; }
+  .back:hover { color: var(--ink); text-decoration: none; }
+  main { padding: 44px 0 80px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 13px; color: var(--muted); margin: 0 0 14px; }
+  .tag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; background: var(--bg2); border-radius: 6px; padding: 4px 8px; }
+  h1 { font-size: clamp(26px, 4.4vw, 40px); line-height: 1.1; letter-spacing: -0.03em; margin: 0 0 20px; }
+  .lead { font-size: 17px; line-height: 1.65; margin: 0 0 40px; }
+  .more { border-top: 1px solid var(--line); padding-top: 28px; }
+  .more h2 { font-size: 12.5px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .more a { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 14.5px; }
+  .more a:hover { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap"><a class="back" href="index.html#experience">← Все проекты</a></div></div>
+<main class="wrap" id="main" tabindex="-1">
+  <div class="meta" id="meta"></div>
+  <h1 id="title">Проект</h1>
+  <p class="lead" id="lead"></p>
+  <div class="more">
+    <h2>Другие проекты</h2>
+    <div id="more"></div>
+  </div>
+</main>
+<script>
+  var PROJECTS = [{"s":"reformirovanie-otdela-pm","t":"Реформирование отдела ПМ","x":"Разобрала причины текучки 12 менеджеров за год: экзит-интервью, 1:1 с сотрудниками и руководителем, оценка 360. Пересмотрела портрет кандидата, критерии найма и онбординг.","g":"Менеджмент","c":"Braind","r":"январь 2024 — сейчас"},{"s":"process-nayma-s-nulya","t":"Процесс найма с нуля","x":"Заявка, оценка, аналитика воронки. Руководители понимают процесс и участвуют в нём по единым стандартам.","g":"Процессы","c":"Braind","r":"январь 2024 — сейчас"},{"s":"individualnye-soglasheniya","t":"Индивидуальные соглашения","x":"Концепция, шаблоны и запуск процесса, при котором ожидания по развитию и зарплате зафиксированы и обязательны к выполнению обеими сторонами.","g":"Удержание","c":"Braind","r":"январь 2024 — сейчас"},{"s":"ocenka-360","t":"Оценка 360","x":"Трёхслойная система с директором по производству: вопросы под бизнес-задачи, управленческий срез и опыт сотрудников, с разбивкой по ролям.","g":"Оценка","c":"Braind","r":"январь 2024 — сейчас"},{"s":"attestaciya-po-processam","t":"Аттестация по процессам","x":"Создала и дважды обновила инструмент проверки знания процессов. Встроила в онбординг и цели испытательного срока.","g":"Онбординг","c":"Braind","r":"январь 2024 — сейчас"},{"s":"hr-daydzhest","t":"HR-дайджест","x":"С февраля 2024, больше 20 выпусков. Единое информационное поле: проекты, изменения, достижения, процессы.","g":"Коммуникации","c":"Braind","r":"январь 2024 — сейчас"},{"s":"rekrutment-junior-lead","t":"Рекрутмент: junior → lead","x":"Разработка, управление проектами, маркетинг, тестирование. Весь процесс в Huntflow: заявка, поиск, интервью, оффер, выход, ИС. До 20 интервью в неделю в пики.","g":"Найм","c":"Braind","r":"январь 2024 — сейчас"},{"s":"bulkichvault","t":"bulkichVault","x":"Пет-проект на основе логики braindVault: личная система знаний для HR — кандидаты, встречи, проекты, аналитика. Одна из задач — этот сайт-резюме.","g":"Пет-проект","c":"Braind","r":"январь 2024 — сейчас"},{"s":"polnyy-cikl-nayma","t":"Полный цикл найма","x":"От запроса до адаптации, включая оффбординг. Подбор middle–lead: разработка, аналитика, дизайн, PR, HR. Воронка в Huntflow и работа с внешними рекрутерами.","g":"Найм","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"ocenka-i-greydirovanie","t":"Оценка и грейдирование","x":"Первичная оценка soft/hard-компетенций, формат презентации кандидатов команде. Регулярная 360-оценка, сопровождение повышений.","g":"Оценка","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"hr-brend-i-kultura","t":"HR-бренд и культура","x":"Визуальный стиль HR-продуктов: презентации, посты, открытки, welcome-наборы. Корпоративные активности и HR-присутствие внутри команды.","g":"Коммуникации","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"autstaff-i-partnery","t":"Аутстафф и партнёры","x":"Процесс найма через агентства: стандарты брифа, взаимодействия и обратной связи. Гайд и прозрачность по статусам и срокам. Ивенты с партнёрами.","g":"Подрядчики","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"baza-znaniy-v-confluence","t":"База знаний в Confluence","x":"HR-база: процессы, шаблоны, гайды, документы. Автоматизация сбора отпускных графиков и систематизация данных.","g":"Процессы","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"vovlechennost","t":"Вовлечённость","x":"Нематериальная мотивация, welcome-пак и welcome book, HR-дайджест и система сигналов по состоянию команды.","g":"Удержание","c":"Digital agency AIM","r":"август 2021 — декабрь 2023"},{"s":"obuchenie-golosovyh-assistentov","t":"Обучение голосовых ассистентов","x":"Транскрибация, категоризация фраз, настройка сценариев. Тестирование моделей на этапе ввода: видео с жестами, симуляция живого общения с ИИ. Работала с ассистентами, включая ботов Сбера.","g":"AI","c":"АктивБизнесКонсалт","r":"январь 2020 — август 2021"},{"s":"dialogi-dlya-assistentov","t":"Диалоги для ассистентов","x":"Создание и структурирование диалогов до 5 фраз в цепочке — с соблюдением тональности и исключением спорных тем.","g":"Сценарии","c":"АктивБизнесКонсалт","r":"январь 2020 — август 2021"},{"s":"hr-manager","t":"HR Manager","x":"Сорсинг разработчиков (C# .NET), массовый подбор для поддержки продуктов, адаптация новых сотрудников, тексты вакансий и размещение на hh.ru.","g":"Найм","c":"АктивБизнесКонсалт","r":"январь 2020 — август 2021"}];
+  (function () {
+    var p = new URLSearchParams(location.search).get('p');
+    var cur = PROJECTS.filter(function (x) { return x.s === p; })[0];
+    if (!cur) {
+      document.getElementById('title').textContent = 'Проект не найден';
+      document.getElementById('lead').innerHTML = 'Вернись к <a href="index.html#experience">списку проектов</a>.';
+      document.getElementById('more').parentNode.style.display = 'none';
+      return;
+    }
+    document.title = cur.t + ' — Наталья Егурнова';
+    document.getElementById('title').textContent = cur.t;
+    document.getElementById('lead').textContent = cur.x;
+    var meta = [];
+    if (cur.c) meta.push('<span>' + cur.c + '</span>');
+    if (cur.r) meta.push('<span>' + cur.r + '</span>');
+    if (cur.g) meta.push('<span class="tag">' + cur.g + '</span>');
+    document.getElementById('meta').innerHTML = meta.join('');
+    var others = PROJECTS.filter(function (x) { return x.s !== cur.s && x.c === cur.c; }).slice(0, 6);
+    document.getElementById('more').innerHTML = others.map(function (x) {
+      return '<a href="project.html?p=' + x.s + '">' + x.t + '</a>';
+    }).join('');
+  })();
+</script>
+</body>
+</html>
