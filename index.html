@@ -176,11 +176,44 @@
   }
   .btn:hover { text-decoration: none; filter: brightness(1.08); }
   .channel-link { font-weight: 600; }
+  .talk { margin-bottom: 16px; }
+  .talk h3 { font-size: 19px; }
+  .proof { font-size: 13px; color: var(--muted); margin: 0 0 20px; }
+  .proof a { font-weight: 600; }
+  .talk-cta { margin: 2px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+  .talk-cta .btn { border: 0; cursor: pointer; font-family: inherit; }
+
+  /* ---------- slides viewer ---------- */
+  .slides-modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; }
+  .slides-modal[hidden] { display: none; }
+  .slides-backdrop { position: absolute; inset: 0; background: rgba(6, 8, 10, 0.95); }
+  .slides-stage { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
+  .slides-stage img { width: auto; height: auto; object-fit: contain; max-width: min(90vw, 149vh); max-height: 84vh; display: block; border-radius: 10px; background: #0d1116; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); }
+  .slides-nav, .slides-close {
+    position: absolute; background: rgba(255, 255, 255, 0.14); color: #ffffff; border: 0; cursor: pointer;
+    border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-family: inherit;
+  }
+  .slides-nav:hover, .slides-close:hover { background: rgba(255, 255, 255, 0.26); }
+  .slides-nav { width: 46px; height: 46px; font-size: 19px; top: 50%; transform: translateY(-50%); }
+  .slides-nav.prev { left: -62px; }
+  .slides-nav.next { right: -62px; }
+  .slides-close { width: 40px; height: 40px; font-size: 17px; top: -54px; right: 0; }
+  .slides-counter { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); color: rgba(255, 255, 255, 0.72); font-size: 13px; letter-spacing: 0.06em; white-space: nowrap; }
+  @media (max-width: 900px) {
+    .slides-stage img { max-width: min(94vw, 135vh); max-height: 76vh; }
+    .slides-nav { width: 40px; height: 40px; background: rgba(0, 0, 0, 0.55); }
+    .slides-nav.prev { left: 4px; }
+    .slides-nav.next { right: 4px; }
+    .slides-close { top: -48px; right: 0; background: rgba(0, 0, 0, 0.55); }
+    .slides-counter { bottom: -32px; }
+  }
 
   /* ---------- company ---------- */
   .company { padding: 32px 0; }
   .company + .company { border-top: 1px solid var(--line); }
-  .company-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 0; }
+  .company-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 0; }
+  .logo { display: inline-flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 8px; padding: 5px 7px; }
+  .logo img { display: block; height: 16px; width: auto; }
   .company-head h3 { font-size: 23px; letter-spacing: -0.02em; margin: 0; font-weight: 650; }
   .company-head .years { color: var(--muted); font-size: 13px; }
   .company-meta { color: var(--muted); font-size: 13px; margin: 7px 0 20px; }
@@ -320,11 +353,21 @@
 
   <section id="consult">
     <div class="section-head"><span class="num">01</span><h2>Личный бренд</h2></div>
+    <div class="panel talk">
+      <p class="kicker">Выступление · 3 июня 2025</p>
+      <h3>Чек-ап резюме и портфолио глазами HR</h3>
+      <p>Интерактивный практикум для студентов ОГУ в рамках Конкурса резюме: как HR читает резюме, что отправляет его в отказ и почему без структуры, цифр и достижений не обойтись. В практической части студенты сами оценивали анонимные резюме в роли HR.</p>
+      <p class="talk-cta">
+        <button class="btn" id="open-slides" type="button">Смотреть презентацию · 42 слайда</button>
+        <a class="channel-link" href="https://vk.com/wall-73021712_558" target="_blank" rel="noopener">Как это было →</a>
+      </p>
+    </div>
     <div class="duo">
       <div class="panel">
         <p class="kicker">Карьерные консультации</p>
         <h3>Разбор резюме и позиционирования</h3>
         <p>Помогаю джунам и мидлам в IT и digital смотреть на себя глазами работодателя: что видно в резюме, портфолио и GitHub и как это конвертировать в офферы.</p>
+        <p class="proof">7 консультаций · 5,0 по 7 оценкам на <a href="https://career.habr.com/grmn-san" target="_blank" rel="noopener">Хабр Карьере</a></p>
         <p class="price">2 500 ₽ / час</p>
         <p class="sub-price">первая встреча — бесплатно</p>
         <a class="btn" href="https://forms.yandex.ru/u/6ad39961852af379e9c7a0b2/" target="_blank" rel="noopener">Получить консультацию</a>
@@ -343,6 +386,7 @@
 
     <article class="company">
       <div class="company-head">
+        <span class="logo"><img src="assets/logos/braind.svg" alt="Braind" height="16"></span>
         <h3>Braind</h3>
         <span class="years" data-start="2024-01">январь 2024 — сейчас</span>
       </div>
@@ -420,6 +464,7 @@
 
     <article class="company">
       <div class="company-head">
+        <span class="logo"><img src="assets/logos/aim.svg" alt="Aim digital" height="16"></span>
         <h3>Digital agency AIM</h3>
         <span class="years" data-start="2021-08" data-end="2023-12">август 2021 — декабрь 2023</span>
       </div>
@@ -443,12 +488,12 @@
         <article class="project">
           <h4>Полный цикл найма</h4>
           <p>От запроса до адаптации, включая оффбординг. Подбор middle–lead: разработка, аналитика, дизайн, PR, HR. Воронка в Huntflow и работа с внешними рекрутерами.</p>
-          <div class="project-foot"><span class="tag">Найм</span><a class="project-link" href="project.html?p=polnyy-cikl-nayma">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">Найм</span></div>
         </article>
         <article class="project">
           <h4>Оценка и грейдирование</h4>
           <p>Первичная оценка soft/hard-компетенций, формат презентации кандидатов команде. Регулярная 360-оценка, сопровождение повышений.</p>
-          <div class="project-foot"><span class="tag">Оценка</span><a class="project-link" href="project.html?p=ocenka-i-greydirovanie">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">Оценка</span></div>
         </article>
         <article class="project">
           <h4>HR-бренд и культура</h4>
@@ -463,7 +508,7 @@
         <article class="project">
           <h4>База знаний в Confluence</h4>
           <p>HR-база: процессы, шаблоны, гайды, документы. Автоматизация сбора отпускных графиков и систематизация данных.</p>
-          <div class="project-foot"><span class="tag">Процессы</span><a class="project-link" href="project.html?p=baza-znaniy-v-confluence">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">Процессы</span></div>
         </article>
         <article class="project">
           <h4>Вовлечённость</h4>
@@ -475,6 +520,7 @@
 
     <article class="company">
       <div class="company-head">
+        <span class="logo"><img src="assets/logos/abk.svg" alt="АктивБизнесКонсалт" height="16"></span>
         <h3>АктивБизнесКонсалт</h3>
         <span class="years" data-start="2020-01" data-end="2021-08">январь 2020 — август 2021</span>
       </div>
@@ -492,17 +538,17 @@
         <article class="project">
           <h4>Обучение голосовых ассистентов</h4>
           <p>Транскрибация, категоризация фраз, настройка сценариев. Тестирование моделей на этапе ввода: видео с жестами, симуляция живого общения с ИИ. Работала с ассистентами, включая ботов Сбера.</p>
-          <div class="project-foot"><span class="tag">AI</span><a class="project-link" href="project.html?p=obuchenie-golosovyh-assistentov">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">AI</span></div>
         </article>
         <article class="project">
           <h4>Диалоги для ассистентов</h4>
           <p>Создание и структурирование диалогов до 5 фраз в цепочке — с соблюдением тональности и исключением спорных тем.</p>
-          <div class="project-foot"><span class="tag">Сценарии</span><a class="project-link" href="project.html?p=dialogi-dlya-assistentov">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">Сценарии</span></div>
         </article>
         <article class="project">
           <h4>HR Manager</h4>
           <p>Сорсинг разработчиков (C# .NET), массовый подбор для поддержки продуктов, адаптация новых сотрудников, тексты вакансий и размещение на hh.ru.</p>
-          <div class="project-foot"><span class="tag">Найм</span><a class="project-link" href="project.html?p=hr-manager">Читать про проект <span aria-hidden="true">→</span></a></div>
+          <div class="project-foot"><span class="tag">Найм</span></div>
         </article>
       </div>
     </article>
@@ -645,7 +691,57 @@
     window.addEventListener('resize', upd);
     upd();
   })();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const TOTAL = 42;
+    const modal = document.getElementById('slides-modal');
+    const img = document.getElementById('slides-img');
+    const counter = document.getElementById('slides-counter');
+    const openBtn = document.getElementById('open-slides');
+    if (!modal || !openBtn || !img) return;
+    let index = 1;
+    const path = i => 'assets/slides/' + String(i).padStart(3, '0') + '.webp';
+    const preload = i => { if (i < 1 || i > TOTAL) return; const pre = new Image(); pre.src = path(i); };
+    function render() {
+      img.src = path(index);
+      img.alt = 'Слайд ' + index + ' из ' + TOTAL;
+      counter.textContent = index + ' / ' + TOTAL;
+      preload(index + 1); preload(index - 1);
+    }
+    function openViewer() { modal.hidden = false; document.body.style.overflow = 'hidden'; render(); }
+    function closeViewer() { modal.hidden = true; document.body.style.overflow = ''; openBtn.focus(); }
+    function go(delta) { const next = index + delta; if (next < 1 || next > TOTAL) return; index = next; render(); }
+    openBtn.addEventListener('click', openViewer);
+    modal.querySelectorAll('[data-close-slides]').forEach(el => el.addEventListener('click', closeViewer));
+    modal.querySelector('.slides-nav.prev').addEventListener('click', () => go(-1));
+    modal.querySelector('.slides-nav.next').addEventListener('click', () => go(1));
+    document.addEventListener('keydown', e => {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') closeViewer();
+      else if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+    });
+    let sx = 0, sy = 0;
+    modal.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    modal.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - sx;
+      const dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  });
 </script>
+
+
+  <div class="slides-modal" id="slides-modal" hidden>
+    <div class="slides-backdrop" data-close-slides></div>
+    <div class="slides-stage" role="dialog" aria-modal="true" aria-label="Презентация «Чек-ап резюме и портфолио»">
+      <img id="slides-img" alt="" width="1600" height="900">
+      <button class="slides-nav prev" type="button" aria-label="Предыдущий слайд">←</button>
+      <button class="slides-nav next" type="button" aria-label="Следующий слайд">→</button>
+      <button class="slides-close" type="button" aria-label="Закрыть презентацию" data-close-slides>✕</button>
+      <div class="slides-counter" id="slides-counter" aria-live="polite">1 / 42</div>
+    </div>
+  </div>
 
 </body>
 </html>
